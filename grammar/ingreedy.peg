@@ -23,9 +23,9 @@ ingredient_addition
   }
 
 amount
-  = float
+  = fraction
   / mixed_number
-  / fraction
+  / float
   / integer
 
 container
@@ -44,22 +44,25 @@ ingredient
   = phrase
 
 phrase
-  = $(word (space word)*)
+  = $(.*)
 
+punctuation
+  = [,]
+  
 word
   = letters:letter+ { return letters.join(''); }
 
 float
-  = $(integer? [.] integer)
+  = digits:[0-9.]+ { return parseFloat( digits.join("") ) }
 
 mixed_number
-  = $(integer space fraction)
+  = left:integer space right:fraction { return left + right; }
 
 fraction
-  = $(integer [/] integer)
+  = left:integer [/] right:integer { return left / right; }
 
 integer
-  = digits:[0-9]+ { return digits.join(''); }
+  = digits:[0-9]+ { return parseInt( digits.join(""), 10 ); }
 
 letter
   = [a-zA-Z]

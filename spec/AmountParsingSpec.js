@@ -5,32 +5,32 @@ describe("Amount parsing", function() {
 
   it('parses integers', function() {
     var result = parser.parse('2 potatoes');
-    expect(result.amount).toBe('2');
+    expect(result.amount).toBe(2);
   });
 
   it('parses large integers', function() {
     var result = parser.parse('12345 potatoes');
-    expect(result.amount).toBe('12345');
+    expect(result.amount).toBe(12345);
   });
 
   it('parses simple fractions', function() {
     var result = parser.parse('1/2 potato');
-    expect(result.amount).toBe('1/2');
+    expect(result.amount).toBe(0.5);
   });
 
   it('parses mixed numbers', function() {
     var result = parser.parse('1 1/2 potatoes');
-    expect(result.amount).toBe('1 1/2');
+    expect(result.amount).toBe(1.5);
   });
 
   it('parses decimals', function() {
     var result = parser.parse('1.5 potatoes');
-    expect(result.amount).toBe('1.5');
+    expect(result.amount).toBe(1.5);
   });
 
   it('parses decimals without leading digits', function() {
     var result = parser.parse('.5 potatoes');
-    expect(result.amount).toBe('.5');
+    expect(result.amount).toBe(0.5);
   });
 
 });

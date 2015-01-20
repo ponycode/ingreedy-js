@@ -32,7 +32,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-peg');
 
-  grunt.registerTask('test', ['jasmine']);
+  grunt.registerTask('test', ['peg','jasmine']);
   grunt.registerTask('build', ['peg']);
 
   grunt.registerTask('travis', ['build', 'test']);

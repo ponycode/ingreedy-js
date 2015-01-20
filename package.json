@@ -8,6 +8,7 @@
     "email": "ian@iancanderson.com",
     "url": "http://iancanderson.com/"
   },
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/iancanderson/ingreedy-js.git"
