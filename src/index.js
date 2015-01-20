@@ -2,7 +2,11 @@
 	'use strict';
 	
 	require('./parser.js');
-	module.exports = Ingreedy;
+	
+	exports.parse = function( line ){
+		if( !line || line.length === 0 ) return {};
+		return Ingreedy.parse( line );
+	};
 	
 })();
 
