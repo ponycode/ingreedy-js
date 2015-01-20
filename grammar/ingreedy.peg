@@ -29,10 +29,16 @@ amount
   / integer
 
 container
-  = "("? amount:amount (ws+)? unit:unit")"? {
+  = container_wrapper_start? (ws+)? amount:amount (ws+)? unit:unit (ws+)? container_wrapper_end? {
     return { amount: amount, unit: unit };
   }
 
+container_wrapper_start
+  = "(" / "{" / "[" / "<"
+  
+container_wrapper_end
+  = ")" / "}" / "]" / ">"
+  
 ws
   = " "
   / [\t]

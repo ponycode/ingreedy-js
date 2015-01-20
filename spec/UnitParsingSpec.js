@@ -78,6 +78,7 @@ describe("Unit parsing", function() {
       expect(parser).toParseUnit('1 fl ounces water');
       expect(parser).toParseUnit('1 fl ounce water');
       expect(parser).toParseUnit('1 fl. ounce water');
+      expect(parser).toParseUnit('1 oz water');
     });
 
     it('parses gallons', function() {

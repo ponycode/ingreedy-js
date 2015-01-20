@@ -92,6 +92,32 @@ describe("Ingreedy", function() {
     });
   });
 
+  describe('ingredient additions with container details in brackets', function() {
+    it('parses the correct values', function() {
+      expect('1 [3.5 ounce] package instant vanilla pudding mix').toBeParsedAs({
+        amount: 1,
+        ingredient: 'package instant vanilla pudding mix',
+        container: {
+          amount: 3.5,
+          unit: 'ounce'
+        }
+      });
+    });
+  });
+  
+  describe('ingredient additions with container details in curly brackets', function() {
+    it('parses the correct values', function() {
+      expect('1 { 3.5 ounce } package instant vanilla pudding mix').toBeParsedAs({
+        amount: 1,
+        ingredient: 'package instant vanilla pudding mix',
+        container: {
+          amount: 3.5,
+          unit: 'ounce'
+        }
+      });
+    });
+  });
+
   describe('ingredient additions with hyphens', function() {
     it('parses the correct values', function() {
       expect('2 1/4 cups all-purpose flour').toBeParsedAs({
