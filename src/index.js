@@ -1,3 +1,8 @@
-require('./parser.js');
+( function(){
+	'use strict';
+	
+	require('./parser.js');
+	module.exports = Ingreedy;
+	
+})();
 
-module.exports = Ingreedy;
